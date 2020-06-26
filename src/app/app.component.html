@@ -12,10 +12,13 @@
           <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ver Temas</a>
+          <a class="nav-link" href="#">Temas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="identity">
           <a class="nav-link" href="#">Crear Temas</a>
+        </li>
+        <li class="nav-item" *ngIf="identity">
+          <a class="nav-link" href="#">Compañeros</a>
         </li>
         <li class="nav-item pl-5">
           <form class="form-inline my-2 my-lg-0">
@@ -25,23 +28,23 @@
         </li>
       </ul>
       <ul class="navbar-nav navbar-rigth">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!identity">
           <a [routerLink]="[('/register')]" class="nav-link">Registrarse</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!identity">
           <a [routerLink]="[('/login')]" class="nav-link">Login</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="identity">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Nombre Apellidos
+            {{identity.name + ' ' + identity.surname}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Panel Usuario</a>
             <a class="dropdown-item" href="#">Mi Perfil</a>
             <a class="dropdown-item" href="#">Ajustes</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+            <a class="dropdown-item pointer" href="#" (click)="logout()">Cerrar Sesión</a>
           </div>
         </li>
       </ul>
@@ -49,7 +52,7 @@
   </nav>
 
   <!--Contenido-->
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
   <!--#Contenido-->
 
 </div>

@@ -1,2 +1,29 @@
-<h1>{{page_title}}</h1>
-<p>login works!</p>
+<div class="col-lg-12 mt-3">
+    <h1>{{page_title}}</h1>
+    <p>Identitificate para accesar a la plataforma</p>
+    <hr>
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Ingreso correcto
+    </div>
+    <div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
+        Error con alguno de los datos de logueo, intenta de nuevo
+    </div>
+    <form class="col-md-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required class="form-control">
+            <small *ngIf="email.invalid && email.touched">
+                El correo que se manda no es válido
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="password">Correo Electrónico</label>
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required
+                class="form-control">
+            <small *ngIf="password.invalid && password.touched">
+                El correo que se manda no es válido
+            </small>
+        </div>
+        <input type="submit" value="Accesar" class="btn btn-sm btn-success" [disabled]="loginForm.invalid">
+    </form>
+</div>
