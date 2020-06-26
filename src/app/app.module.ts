@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { routing, appRoutingProviders } from 'src/app.routing';
+import { AngularFileUploaderModule } from "angular-file-uploader";
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFileUploaderModule,
     routing,
     FormsModule,
     HttpClientModule,

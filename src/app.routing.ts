@@ -7,12 +7,14 @@ import { LoginComponent } from './app/components/login/login.component';
 import { RegisterComponent } from './app/components/register/register.component';
 import { ErrorComponent } from './app/components/error/error.component';
 import { HomeComponent } from './app/componentes/home/home.component';
+import { UserEditComponent } from './app/components/user-edit/user-edit.component';
 
 // Array de rutas
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'user-edit', component: UserEditComponent },
   { path: '**', component: ErrorComponent },
 ];
 
